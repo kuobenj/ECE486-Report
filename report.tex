@@ -1,0 +1,64 @@
+\documentclass[11pt,letterpaper,twoside]{article}
+\usepackage{mathptmx} %Times font
+\usepackage{graphicx}
+
+% packages published by the American Mathematical Society
+\usepackage{amssymb,amsmath}
+
+% for the title page
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% my favorite font: charter
+%\usepackage{charter}
+
+% create hyper-links within the document
+\usepackage{hyperref}
+
+% for colored links
+\usepackage{xcolor}
+\definecolor{illinois_professional_blue}{cmyk}{60, 40, 5, 0}
+\definecolor{illinois_professional_orange}{cmyk}{3, 55, 100, 0}
+\definecolor{illinois_bold_blue}{cmyk}{100, 86, 24, 9}
+\definecolor{illinois_bold_orange}{cmyk}{0, 62, 99, 0}
+
+\hypersetup{colorlinks=true, linktoc=all, linkcolor=illinois_professional_blue,}
+
+% adds bibliography to table of contents
+% \usepackage[nottoc]{tocbibind}
+
+% segregating bibliography and references
+% \usepackage{multibib}
+% \newcites{ltex}{References}
+
+% every section starts on a new page
+% redefining section
+\let\stdsection\section\renewcommand\section{\newpage\stdsection}
+
+\begin{document}
+% line 1: no numbering for table of contents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+\input{0-title-page.tex}
+
+\tableofcontents
+
+% line 2: no numbering for table of contents
+\setcounter{page}{0}
+\input{1-introduction.tex}
+\input{2-mathematical-model.tex}
+\input{3-full-state-feedback-control-friction-compensation.tex}
+\input{4-full-state-feedback-control-decoupled-observer.tex}
+\input{5-conclusions.tex}
+\input{6-extra-credit.tex}
+
+% references
+%\bibliographystyleltex{unsrt}
+%\bibliographyltex{bib}
+
+%\renewcommand{\refname}{Bibliography}
+
+% bibliography
+%\bibliographystyle{plain}
+%\bibliography{bib}
+
+\end{document}
