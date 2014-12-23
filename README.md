@@ -16,8 +16,8 @@ by Rohan Arora, edited by Yün Han
 *  `report.tex` -- main file, pdflatex this file (tested on Mac and Linux)
 *  `0-title-page.tex` -- title page
 *  `1-introduction.tex` -- chapter 1 
-*  `2-mathematical-model.tex` -- chapter 1 (lagrange equations of motion)and chapter 4 (linearisation)
+*  `2-mathematical-model.tex` -- chapter 1 (lagrange equations of motion) and chapter 4 (linearisation)
 *  `3-full-state-feedback-control-friction-compensation.tex` -- chapter 2 and chapter 4 (two state and three state feedback controller design)
-*  `4-full-state-feedback-control-decoupled-observer.tex` -- chapter 4 (controller design) and chapter 5  (observer design for estimated state)
+*  `4-full-state-feedback-control-decoupled-observer.tex` -- chapter 4 (controller design) and chapter 5 (observer design for estimated state)
 *  `5-conclusions.tex` -- conclusion
 *  `6-extra-credit.tex` -- (optional) add thsese pages if you have demoed chapter 6 and chapter 7

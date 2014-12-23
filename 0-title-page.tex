@@ -1,3 +1,25 @@
+% This file is part of the multi-tex ECE 486 Final Project Report 
+% file name: 0-title-page.tex
+
+% YOU DO NOT COMPILE FROM THIS SINGLE FILE, read the following
+
+% included files:
+% (Makefile)
+% Makefile -- run make Makefile (on Mac or Linux), it takes care of LaTeX compilation
+
+% (*.PDF)
+% report.pdf -- report file, print it out and submit it
+
+% (*.TEX)
+% report.tex -- main file, pdflatex this file (tested on Mac and Linux)
+% 0-title-page.tex -- (this file) title page
+% 1-introduction.tex -- chapter 1 
+% 2-mathematical-model.tex -- chapter 1 (lagrange equations of motion) and chapter 4 (linearisation)
+% 3-full-state-feedback-control-friction-compensation.tex -- chapter 2 and chapter 4 (two state and three state feedback controller design)
+% 4-full-state-feedback-control-decoupled-observer.tex -- chapter 4 (controller design) and chapter 5 (observer design for estimated state)
+% 5-conclusions.tex -- conclusion
+% 6-extra-credit.tex -- (optional) add thsese pages if you have demoed chapter 6 and chapter 7
+ 
 \begin{titlepage}
 	\begin{center}
 
@@ -9,26 +31,27 @@
 		\uppercase{Fall 2014}\\[0.5cm]
 
 		\HRule\\[1.5cm]
-
+                
+                % Add your info and your lab partner's info. Also include your section and TA's name
 		\noindent
 		\begin{minipage}{0.4\textwidth}
 			\begin{flushleft} \large
-				\textbf{Daniel McKeogh}
+				\textbf{Daniel McKeogh} % can we remove the names of students? just insert a name like FirstName1 LastName1 for lab partner?
 			\end{flushleft}
 		\end{minipage}%
 		\begin{minipage}{0.4\textwidth}
 			\begin{flushright} \large
-				\textbf{Rohan R. Arora}
+				\textbf{Rohan R. Arora} % FirstName2 LastName2
 			\end{flushright}
 		\end{minipage}
 		\\~\\
-		\textit{Teaching Assistant}: Y\"{u}n Han\\
-		\textit{Day of Laboratory Section}: Tuesday
+		\textit{Teaching Assistant}: Y\"{u}n Han\\ % change it to TA's Name?
+		\textit{Day of Laboratory Section}: Tuesday % also this line depends
 
 		\vfill
 
 		% Bottom of the page
-		{\large \today}
+		{\large \today} % you can explicitly use a date if you don't like \today
 
 	\end{center}
 \end{titlepage}

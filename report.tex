@@ -1,9 +1,32 @@
+% This file is part of the multi-tex ECE 486 Final Project Report 
+% file name: report.tex
+
+% YOU CAN COMPILE FROM THIS FILE, THIS IS THE MAIN FILE, read the following
+
+% included files:
+% (Makefile)
+% Makefile -- run make Makefile (on Mac or Linux), it takes care of LaTeX compilation
+
+% (*.PDF)
+% report.pdf -- (this file) report file, print it out and submit it
+
+% (*.TEX)
+% report.tex -- main file, pdflatex this file (tested on Mac and Linux)
+% 0-title-page.tex -- title page
+% 1-introduction.tex -- chapter 1 
+% 2-mathematical-model.tex -- chapter 1 (lagrange equations of motion) and chapter 4 (linearisation)
+% 3-full-state-feedback-control-friction-compensation.tex -- chapter 2 and chapter 4 (two state and three state feedback controller design)
+% 4-full-state-feedback-control-decoupled-observer.tex -- chapter 4 (controller design) and chapter 5 (observer design for estimated state)
+% 5-conclusions.tex -- conclusion
+% 6-extra-credit.tex -- (optional) add thsese pages if you have demoed chapter 6 and chapter 7
+
 \documentclass[11pt,letterpaper,twoside]{article}
 \usepackage{mathptmx} %Times font
 \usepackage{graphicx}
 
 % packages published by the American Mathematical Society
-\usepackage{amssymb,amsmath}
+\usepackage{mathtools} % mathtools loads amsmath and adds some useful tools. See, http://tex.stackexchange.com/questions/43860/mathtools-vs-amsmath
+\usepackage{amssymb}
 
 % for the title page
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -32,7 +55,7 @@
 
 % every section starts on a new page
 % redefining section
-\let\stdsection\section\renewcommand\section{\newpage\stdsection}
+\let\stdsection\section\renewcommand\section{\newpage\stdsection} % Leslie Lamport warns it is better to create newcommand rather than overwrite existing command, especially LaTeX built-ins
 
 \begin{document}
 % line 1: no numbering for table of contents
@@ -62,3 +85,12 @@
 %\bibliography{bib}
 
 \end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
