@@ -21,8 +21,15 @@
 % 6-extra-credit.tex -- (optional) add thsese pages if you have demoed chapter 6 and chapter 7
 
 \section{Introduction}
-
+The goal of the final project was to design and compare different controllers for stabilizing the reaction wheel pendulum (RWP) at equilibrium positions. We first derived mathematical equations to model the system and then obtain parameters for the pendulum and rotor. Later we used two state-space approaches -- full state feedback and observer feedback to implement the controllers for stabilizing the pendulum. In addition, our group also implemented the two extra-credit sections.
 \subsection{Sensors}
+The RWP has two optical encoders for measuring the state of the system. One sensor measures the relative angular displacement of the pendulum and the base mount $\varphi_p$. The other sensor measures the angular displacement of the rotor relative to the pendulum $\varphi_r$. In our mathematical modelss, however, we used angular positions relative to the vertical axis normal to the ground. Therefore the angular positions we used were as follows:
+$$\theta_p = \varphi_p$$
+$$\theta_r = \varphi_p+\varphi_r$$
+From this point forward, we will use subscript $r$ and $p$ to refer to the rotor relative to the pendulum and the pendulum and the base mount respectively.
 \subsection{Actuators}
+The RWP has one actuator which is a 24-Volt, permanent magnet DC motor that could produce a torque on the reaction wheel. According Newton’s third law, there will be a reaction torque on the motor and hence the pendulum. The reaction torque can be used to control the motion of the pendulum.
 \subsection{Equilibrium Positions}
+There are two equilibrium positions for the RWP. They are the up and down equilibrium point. The up equilibrium point is an unstable configuration. The pendulum will easily fall down without control when disturbance is applied. The down equilibrium point is a stable configuration as the pendulum will eventually return to this point even without control.
 \subsection{Implementation}
+In this lab, we used Matlab to design the controllers for the RWP. We used the built-in Simulink interface in Matlab to design the controllers graphically.

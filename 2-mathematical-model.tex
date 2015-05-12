@@ -21,6 +21,71 @@
 % 6-extra-credit.tex -- (optional) add thsese pages if you have demoed chapter 6 and chapter 7
 
 \section{Mathematical Model}
-
+We first used the Lagrange's equations to get the differential equations describing the system and then linearize the equations around the equilibrium point at $\theta_p=\pi$.
 \subsection{Derivation of differential equations from Lagrangian}
+In order to use the Lagrange's equations we must first obtain the energy equations of our system. We will use the following nomenclature:\\
+$KE$ kinetic energy\\
+$PE$ potential energy\\
+$J$ moment of inertia with respect to $\theta_p$\\
+$J_r$ moment of inertia with respect to the rotor about its center of mass\\
+$l$ distance from pivot to center of mass of pendulum and rotor\\
+$k$ torque constant of motor\\
+$i$ input current to motor\\
+The equations are as follows:
+$$KE_{\text{pendulum}} = \frac{1}{2}J\dot\theta_p^2$$
+$$PE_{\text{pendulum}} = (l-l\cos(\theta_p))mg$$
+$$KE_{\text{rotor}} = \frac{1}{2}J_r\dot\theta_p^2$$
+$$PE_{\text{rotor}} = 0$$
+The Lagrangians can then be derived from this as they are the difference between the kinetic energies form the potential energies.
+$$L_{\text{pendulum}} = \frac{1}{2}J\dot\theta_p^2-(l-l\cos(\theta_p))mg$$
+$$L_{\text{rotor}} = \frac{1}{2}J_r\dot\theta_p^2-0$$
+Finally from where we can derive our Lagrange Equations by using this relationship:
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_k}\right)-\frac{\partial L}{\partial q_k}=\tau_k, k = 1,...,n$$
+(where $\tau$ is the generalized for ce or torque in this case) we can get our Lagrange equations, which are our differential equations:
+$$\text{Lagrange Equation}_{\text{pendulum}} = J\ddot\theta_p+mgl\sin(\theta_p)=-ki$$
+$$\text{Lagrange Equation}_{\text{rotor}} = J_r\ddot\theta_r=ki$$
+We can rewrite this in a format we're more familiar with (noting that $\omega_{np}^2 = \frac{mgl}{J}$):
+$$\ddot\theta_p+\omega_{np}^2\sin(\theta_p)=-\frac{k}{J}i$$
+$$\ddot\theta_r=\frac{k}{J_r}i$$
+
+Finally noting the lab manual we need to consider the fact that our input we provide to the system is not the current but rather a signal we denote as $u$. We must also consider a frictional force of the rotor which depends of the speed which we will denote as $F(\dot\theta_r)$. Finally to simplify our representation we will make the following substitutions: $a = \omega_{np}^2 = \frac{mgl}{J}$, $b_p = \frac{k_u}{J}$, and $b_r = \frac{k_u}{J_r}$
+
+This results in the following equations:
+$$\ddot\theta_p+a\sin(\theta_p)=-b_p(u+F(\dot\theta_r))$$
+$$\ddot\theta_r=-b_r(u+F(\dot\theta_r))$$
+
 \subsection{Linearization into State Space Form}
+
+Based on what we learned we are going to provide linear control to stablize this system, and we know this is not a linear system. We must linearize this system and we linearized the equations at the equilibrium point $\theta_p=\pi$. We get the state-space equation of $\boldsymbol{\dot x = Ax+B}u$ in the form:
+
+$$
+\begin{bmatrix}
+\delta\dot\theta_p\\
+\ddot\theta_p\\
+\delta\dot\theta_r\\
+\ddot\theta_r
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 & 0 & 0\\
+a & 0 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+\delta\theta_p\\
+\dot\theta_p\\
+\delta\theta_r\\
+\dot\theta_r
+\end{bmatrix}
++
+\begin{bmatrix}
+0\\
+-b_p\\
+0\\
+b_r
+\end{bmatrix}
+u$$
+where $\delta\theta_p = \theta_p-\pi$ and $\delta\theta_r = \theta_r$.\\
+
+Since this matrix is not that interesting, we won't show all the mathematical steps of linearizing it, but the nonlinear element of interest is not hard to see that the derivitive of sine is cosine, and cosine of $\pi - \pi$ or $0$ is 1. Hence, the $a$ coefficient is all that remains in that term.
